@@ -1,3 +1,2 @@
 def add(x, y):
-    out = x + y
-    return out
+    return x + y
