@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-Use this checklist to tick off sub-tasks as you complete them.
+Use this checklist to tick off sub-tasks as you complete them following these [step-by-step instructions](https://srse-git-github-zero2hero.netlify.app/04-collaborative_github_advanced/03-resolve-issues-in-branches/#i-classfas-fa-usersi-resolve-assigned-issue)
 
 - [ ] Create new `subtract` branch
 - [ ] Add **`subtract`** function
@@ -16,7 +16,6 @@ Use this checklist to tick off sub-tasks as you complete them.
 - [ ] Commit changes and push to GitHub
 - [ ] Make pull request
 - [ ] Close issue
-
 
 ## Instructions
 

@@ -1,18 +1,18 @@
 ---
-name: Add subtraction function
-about: Instructions on adding a subtraction function to the calculator package
-title: "[FEATURE] Add subtraction function"
+name: Add division function
+about: Instructions on adding a division function to the calculator package
+title: "[FEATURE] Add division function"
 labels: enhancement, help wanted
 assignees: ''
 
 ---
 
-Use this checklist to tick off sub-tasks as you complete them.
+Use this checklist to tick off sub-tasks as you complete them following these [step-by-step instructions](https://srse-git-github-zero2hero.netlify.app/04-collaborative_github_advanced/03-resolve-issues-in-branches/#i-classfas-fa-usersi-resolve-assigned-issue)
 
-- [ ] Create new `subtract` branch
-- [ ] Add **`subtract`** function
+- [ ] Create new `divide` branch
+- [ ] Add **`divide`** function
 - [ ] Import function in `__init__.py`
-- [ ] Add **subtract** test
+- [ ] Add **divide** test
 - [ ] Commit changes and push to GitHub
 - [ ] Make pull request
 - [ ] Close issue
@@ -22,34 +22,34 @@ Use this checklist to tick off sub-tasks as you complete them.
 
 ###  Create branch
 
-Create a new `subtract` branch from `main` to work in.
-### Add subtraction function
+Create a new `divide` branch from `main` to work in.
+### Add division function
 
-Create a new `subtract.py` file in the `pythoncalculator/` directory.
+Create a new `divide.py` file in the `pythoncalculator/` directory.
 
 ```python
-def subtract(x, y)
-    return x - y
+def divide(x, z):
+    return x / y
 ```
 
 Open the `pythoncalculator/__init__.py` file and add the following line of code:
 
 ```python
-from .subtract import subtract 
+from .divide import divide 
 ```
 
-### Add subtraction test
+### Add division test
 
-Create a new `test_subtract.py` file in the `tests/` directory.
+Create a new `test_divide.py` file in the `tests/` directory.
 
 Add the following code and save:
 
 ```python
-from pythoncalculator import subtract
+from pythoncalculator import divide
 
 
-def test_subtract():
-    assert subtract(1, 3) == -2
+def test_divide():
+    assert divide(10, 2) == 5
 ```
 
 ### Commit your changes and push to GitHub
