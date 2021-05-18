@@ -28,7 +28,13 @@ python -m pip install -r requirements.txt
 
 ## Install the package
 
-Make sure you have activated your conda environment. Then run:
+Make sure you have activated your conda environment.
+
+```
+conda activate python-calculator
+```
+
+Then run:
 
 ```
 pip install .
@@ -39,5 +45,5 @@ pip install .
 Make sure you have activated your conda environment. Then run:
 
 ```
-pytest
+python -m pytest
 ```
