@@ -30,6 +30,7 @@ Create a new `multiply.py` file in the `pythoncalculator/` directory.
 ```python
 def multiply(x, y):
     return x + y
+
 ```
 
 Open the `pythoncalculator/__init__.py` file and add the following line of code:
@@ -50,6 +51,7 @@ from pythoncalculator import multiply
 
 def test_multiply():
     assert multiply(10, 3) == 30
+
 ```
 
 ### Commit your changes and push to GitHub
