@@ -30,6 +30,7 @@ Create a new `divide.py` file in the `pythoncalculator/` directory.
 ```python
 def divide(x, z):
     return x / y
+
 ```
 
 Open the `pythoncalculator/__init__.py` file and add the following line of code:
@@ -50,6 +51,7 @@ from pythoncalculator import divide
 
 def test_divide():
     assert divide(10, 2) == 5
+
 ```
 
 ### Commit your changes and push to GitHub

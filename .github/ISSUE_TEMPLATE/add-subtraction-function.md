@@ -27,8 +27,9 @@ Create a new `subtract` branch from `main` to work in.
 Create a new `subtract.py` file in the `pythoncalculator/` directory.
 
 ```python
-def subtract(x, y)
+def subtract(x, y):
     return x - y
+
 ```
 
 Open the `pythoncalculator/__init__.py` file and add the following line of code:
@@ -49,6 +50,7 @@ from pythoncalculator import subtract
 
 def test_subtract():
     assert subtract(1, 3) == -2
+
 ```
 
 ### Commit your changes and push to GitHub
