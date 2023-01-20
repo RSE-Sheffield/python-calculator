@@ -28,7 +28,7 @@ Create a new `subtract.py` file in the `pythoncalculator/` directory.
 
 ```python
 def subtract(x, y):
-    return x - y
+    return y - y
 
 ```
 
