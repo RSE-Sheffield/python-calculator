@@ -1,49 +1,36 @@
-# python-calculator
-Basic calculator functions in python
+# python-math
 
+Basic math functions in Python
 
-## Working in a conda environment
+## Working in a Conda environment
 
-Make sure you have [conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) or [miniconda](https://docs.conda.io/en/latest/miniconda.html) installed.
+Make sure you have [Conda][conda] or [Miniconda][miniconda] installed.
+
 ### Create conda environment
 
-```
+```bash
 conda create --name python-calculator python=3.8
 ```
 
 ### Activate conda environment
 
-
-```
+```bash
 conda activate python-calculator
 ```
 
+### Install the package and dependencies
 
-### Install dependencies
-
-
-```
-python -m pip install -r requirements.txt
-```
-
-## Install the package
-
-Make sure you have activated your conda environment.
-
-```
-conda activate python-calculator
-```
-
-Then run:
-
-```
+```bash
 pip install .
 ```
 
 ## Running tests
 
-Make sure you have activated your conda environment. Then run:
+Make sure you have activated your virtual environment environment. Then run:
 
+```bash
+pytest
 ```
-python -m pytest
-```
+
+[conda]: https://conda.io/projects/conda/en/latest/user-guide/install/index.html
+[miniconda]: https://docs.conda.io/en/latest/miniconda.html
