@@ -1,6 +1,228 @@
 [build-system]
 requires = [
-    "setuptools>=42",
+    "setuptools>=45",
     "wheel"
 ]
 build-backend = "setuptools.build_meta"
+
+[project]
+name = "pythonmaths"
+dynamic = ["version"]
+authors = [
+  {name = "Author1", email = "author1@somewhere.com"},
+  {name = "Author2", email = "author2@somewhere.com"},
+]
+description = "Perform mathematical calculations in Python"
+readme = "README.md"
+license = {text = "MIT"}
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+]
+requires-python = ">=3.10"
+dependencies = [
+  "numpy"
+]
+
+[project.urls]
+Source = "https://github.com/<owner-account>/python-math"
+Bug_Tracker = "https://github.com/<owner-account>/python-math/issues"
+
+[project.optional-dependencies]
+tests = [
+  "pytest",
+  "pytest-cov",
+  "pytest-github-actions-annotate-failures",
+  "pytest-mpl"
+]
+dev = [
+  "black",
+  "flake8",
+  "ipython",
+  "mypy",
+  "pre-commit",
+  "pylint",
+  "pyupgrade",
+  "ruff",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.package-data]
+pythonmaths = ["py.typed"]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["pythonmaths"]
+exclude = ["tests"]
+namespaces = false
+
+[tool.setuptools_scm]
+write_to = "pythonmaths/_version.py"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = ["--cov", "--mpl", "-ra", "--strict-config", "--strict-markers"]
+log_cli_level = "Info"
+testpaths = [
+    "tests",
+]
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::PendingDeprecationWarning",
+    "ignore::UserWarning"
+]
+xfail_strict = true
+
+[tool.coverage.run]
+source = ["pythonmaths"]
+omit = [
+  "pythonmaths/_version.py",
+  "*tests*",
+  "**/__init__*",
+]
+
+[tool.black]
+line-length = 120
+target-version = ['py38']
+exclude = '''
+
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.venv
+  )/
+)
+'''
+
+[tool.ruff]
+exclude = [
+  "*.ipynb",
+  ".bzr",
+  ".direnv",
+  ".eggs",
+  ".git",
+  ".hg",
+  ".mypy_cache",
+  ".nox",
+  ".pants.d",
+  ".pytype",
+  ".ruff_cache",
+  ".svn",
+  ".tox",
+  ".venv",
+  "__pycache__",
+  "__pypackages__",
+  "_build",
+  "buck-out",
+  "build",
+  "dist",
+  "docs/conf.py",
+  "node_modules",
+  "venv",
+]
+# per-file-ignores = []
+line-length = 120
+target-version = "py310"
+lint.select = [
+  "A", # flake8-builtins
+  "B", # flake8-bugbear
+  "C", #
+  "D", # pydocstyle
+  "E", # pycodestyle error
+  "F",
+  "I", # isort
+  "NPY", # numpy
+  "PT", # flake8-pytest-style
+  "PTH", # flake8-use-pathlib
+  "R",
+  "S", #flake8-bandit
+  "W", # pycodestyle warning
+  "U",
+  "UP", # pyupgrade
+]
+lint.ignore = [
+  "B905",
+  "E501",
+  "S101",
+]
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+lint.fixable = [
+  "A", # flake8-builtins
+  "B", # flake8-bugbear
+  "C", #
+  "D", # pydocstyle
+  "E", # pycodestyle error
+  "F",
+  "I", # isort
+  "NPY", # numpy
+  "PT", # flake8-pytest-style
+  "PTH", # flake8-use-pathlib
+  "R",
+  "S", #flake8-bandit
+  "W", # pycodestyle warning
+  "U",
+  "UP", # pyupgrade
+]
+lint.unfixable = []
+
+# Numpy2 deprecation checks
+lint.extend-select = ["NPY201"]
+preview = true
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+
+[tool.ruff.lint.isort]
+case-sensitive = true
+
+[tool.ruff.lint.pydocstyle]
+convention = "numpy"
+
+[tool.ruff.lint.flake8-pytest-style]
+fixture-parentheses = true
+
+[tool.codespell]
+skip = "*.po*,*.ts"
+count = ""
+quiet-level = 3
+
+[tool.mypy]
+files = ["maths", "tests"]
+python_version = "3.10"
+strict = true
+show_error_codes = true
+warn_unreachable = true
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+exclude='''
+(
+  /(
+      \docs
+  )/
+)
+'''
+[[tool.mypy.overrides]]
+module = "tests"
+allow_untyped_decorators = true
+
+[tool.numpydoc_validation]
+checks = [
+  "all",
+  "ES01",
+  "EX01",
+  # "PR01",
+  "PR10", # Conflicts with black formatting
+  "SA01",
+]
+exclude = [  # don't report on objects that match any of these regex
+    "\\.undocumented_method$",
+    "\\.__repr__$",
+]
+override_SS05 = [  # override SS05 to allow docstrings starting with these words
+    "^Process ",
+    "^Assess ",
+    "^Access ",
+]
