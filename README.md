@@ -8,7 +8,7 @@ Make sure you have [conda](https://conda.io/projects/conda/en/latest/user-guide/
 ### Create conda environment
 
 ```
-conda create --name python-calculator python=3.8
+conda create --name python-calculator python=3.14
 ```
 
 ### Activate conda environment
